@@ -39,3 +39,4 @@ console.log(a,b);
 let [e, f, g, h] = ary; //배열의 값보다 많을 경우 undefined
 console.log(e, f, g, h);
 
+//

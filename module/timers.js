@@ -1,6 +1,6 @@
 // 2024-01-26 15:03:50
 
-const { setInterval } = require("timers/promises");
+//const { setInterval } = require("timers/promises");
 
 //연도 제외 2자리니 특정 코드 필요
 function format(value) {

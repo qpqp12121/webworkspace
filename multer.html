@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>multer</title>
+</head>
+<body>
+  <div>
+    <form action="http://localhost:4000/profile" method="post" enctype="multipart/form-data">
+      <input type="file" name="avatar">
+      <button>싱글 파일 전송</button>
+    </form>
+    <hr>
+    <form action="http://localhost:4000/photos" method="post" enctype="multipart/form-data">
+      <input type="file" name="list" multiple><!--multiple !!--> 
+      <button>멀티 파일 전송</button>
+    </form>
+  </div>
+</body>
+</html>

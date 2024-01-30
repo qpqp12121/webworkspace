@@ -2,8 +2,12 @@
 //필요에 따라 QueryString사용하는 경우 有 (들어오는 데이터가 유동적일 때)
 
 const fs = require('fs');
-const express = require('express');
+const express = require('express'); //express는 하나의 모듈로 인식하여 얘만 등록해도 파일 찾아감
+const userRouter = require('./user.js'); //근데 우리가 따로 등록한 router는 파일로 인식하여 경로 찾아가 불러오기
 const app = express(); //서버 관리하는 객체
+
+
+
 
 //미들웨어(listen 전에 작성하는 거 권장, 모아놓기)
 //--Request Data Process
@@ -59,6 +63,8 @@ const getData = (target, where)=>{
   return data; //배열아니면 원래 데이터 반환
 };
 
+//user.js의 경로 mapping(위에서 정의하기 require())
+app.use('/user', userRouter);
 
 app.listen(3000, ()=>{ //listen(): 서버실행 명령어 (이 프로젝트 안에서 한 번만 사용)
   console.log('http://localhost:3000');

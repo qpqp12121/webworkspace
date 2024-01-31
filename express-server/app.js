@@ -97,7 +97,7 @@ app.get('/comments', (req, res)=>{
 });
 //단건조회
 app.get('/comments/:id', (req, res)=>{
-  let commentsId = req.params.id;
+  let commentsId = req.params.id; 
   let data = getData('comments', commentsId);
   res.json(data);
 });

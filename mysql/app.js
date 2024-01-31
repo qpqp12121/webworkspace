@@ -58,7 +58,8 @@ async function updateAll(request){
   return result;
 }//selectedInfo(request.body.param) 함수 거쳐서 제거될 대상은 제거한 값으로
 
-//*수정하지 않는 데이터 분리가 안 되니 데이터 통신하기 전에 제거하는 코드 작성
+//* 수정하지 않는 데이터 제거 후 -> 변경할 필드만 담은 새로운 { } 생성하기 
+//(수정하지 않는 데이터 분리가 안 되니 데이터 통신하기 전에 제거하는 코드 작성)
 function selectedInfo(obj){
   //내가 빼고자 하는 대상/필요한 필드만 복사해서 새로운 객체로 만듦 (+배열은 특정값 제거 splice() )
   let delData = ["id", "email"]; //수정하지 않을 대상을 배열로 만들어 놓고
@@ -73,7 +74,7 @@ function selectedInfo(obj){
       }
     }
     if(!isTargeted){
-      newObj[field] = obj[field];  //실제로 수정하고자 하는 대상은 복사
+      newObj[field] = obj[field];  //실제로 수정하고자 하는 대상-> 새로운 배열에 복사
     }
   }
   return newObj;

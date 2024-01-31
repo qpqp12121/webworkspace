@@ -130,3 +130,4 @@ dist
 .pnp.*
 express-server/package-lock.json
 mysql/package-lock.json
+homework/package-lock.json

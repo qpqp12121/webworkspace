@@ -22,7 +22,7 @@ app.get('/users/:id', async (req, res) => {
     let info = (await mysql.executeQuery('userInfo',userId))[0]; //*단건조회 꼭 제한 걸기
     res.json(info);
 })
-
+//등록
 app.post('/users', async (req, res)=>{
     let data = req.body.param;  
     let result = await mysql.executeQuery('userInsert', data);
@@ -81,7 +81,7 @@ function getInfo(obj){
     }
     return newAry; 
 };
-
+//삭제
 app.delete('/users/:id', async (req, res) => {
     let userId = req.params.id;
     let result = await mysql.executeQuery('userDelete',userId);

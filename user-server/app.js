@@ -12,16 +12,19 @@ app.listen(3000, ()=>{
     console.log('Server Start, http://localhost:3000');
 });
 
+//전체조회
 app.get('/users', async (req, res)=>{
     let list = await mysql.executeQuery('userList');
     res.json(list);
 })
 
+//단건조회
 app.get('/users/:id', async (req, res) => {
     let userId = req.params.id;
     let info = (await mysql.executeQuery('userInfo',userId))[0]; //*단건조회 꼭 제한 걸기
     res.json(info);
 })
+
 //등록
 app.post('/users', async (req, res)=>{
     let data = req.body.param;  
@@ -29,11 +32,13 @@ app.post('/users', async (req, res)=>{
     res.json(result);
 })
 
+//수정
 app.put('/users/:id', async ( req, res ) => {
     let result = await updateAll(req);
     res.json(result);
 });
 
+//1)updateAll
 async function updateAll(request){
     let data = [ selectedInfo(request.body.param), request.params.id ]; // set절, user_id컬럼
     let result = await mysql.executeQuery('userUpdateAll', data);
@@ -61,6 +66,7 @@ function selectedInfo(obj){
     return newObj;
 };
 
+//2)updateInfo
 async function updateInfo(request){
     let data = [ ...getInfo(request.body.param) , request.params.id]; // 컬럼 : user_name, user_gender, user_age
     let result = await mysql.executeQuery('userUpdateInfo', data);
@@ -81,6 +87,7 @@ function getInfo(obj){
     }
     return newAry; 
 };
+
 //삭제
 app.delete('/users/:id', async (req, res) => {
     let userId = req.params.id;

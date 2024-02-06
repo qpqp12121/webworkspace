@@ -94,6 +94,6 @@ function getInfo(obj) {
 //5.삭제 userDelete (단건조회 참고)
 app.delete('/users/:no', async(req, res) => {
   let userNo = req.params.no;
-  let user = (await mysql.executeQuery('userDelete', userNo))[0];
+  let user = (await mysql.executeQuery('userDelete', userNo));
   res.json(user);
 })

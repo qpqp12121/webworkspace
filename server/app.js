@@ -13,8 +13,8 @@ app.listen(3000, ()=>{
 
 //전체조회
 app.get('/boards', async (req, res)=>{
-        let list = await mysql.executeQuery('boardList');
-        res.json(list);
+    let list = await mysql.executeQuery('boardList');
+    res.json(list);
 })
 
 //단건조회
@@ -59,3 +59,11 @@ function selectedInfo(obj){
     }
     return newObj;
 };
+
+//댓글 목록
+app.get('/comments/:bno', async(req, res) => {
+    let bno = req.params.bno;
+    let list = await mysql.executeQuery('commentList', bno);
+    res.json(list);
+})
+

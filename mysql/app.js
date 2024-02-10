@@ -7,9 +7,9 @@ const mysql = require('./db.js'); //자원 db.js가 들고있으니 불러오기
 //! listen기준으로 위쪽은 middleware / 아래쪽은 routing 작성했음
 
 
-//< middleware > 등록 use()
+//< middleware > 등록 use() -전역사용
 //application/json
-app.use(express.json()); //미들웨어이지만 express에 내장되어 있어 설치X //+app.use(function(req,res,next) {}); //직접
+app.use(express.json()); //미들웨어이지만 express에 내장되어 있어 설치X //+app.use(function(req,res,next) {}); //직접만드는미들웨어
 //application/x-www-form-urlencoded 
 app.use(express.urlencoded({extended: false})); //queryString형태 대응 (많이 사용하진 않지만 검색 등 사용)
 

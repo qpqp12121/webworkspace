@@ -13,8 +13,8 @@ app.listen(3000, ()=>{
 
 //전체조회
 app.get('/boards', async (req, res)=>{
-    let list = await mysql.executeQuery('boardList');
-    res.json(list);
+        let list = await mysql.executeQuery('boardList');
+        res.json(list);
 })
 
 //단건조회

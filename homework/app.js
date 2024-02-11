@@ -43,7 +43,7 @@ app.post('/users', async(req, res) => {
 app.put('/users/:id', async(req, res) => {
   let data = [ selectedInfo(req.body.param), req.params.id ]; // [객체, 단일값]
   let result = await mysql.query('userUpdateAll', data);
-  res.json(updateInfo);
+  res.json(result);
 });
 
 //전체정보에서 -> 변경할 필드만 담은 새로운 객체 생성 함수
